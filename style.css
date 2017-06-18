@@ -7,3 +7,50 @@ Template: Avada
 Version: 1.0.0
 Text Domain:  Avada
 */
+
+
+.top-featured-container {
+	background-size: 100%;
+	background-position: center;
+	height: 285px;
+}
+
+/* HOME */
+.home .fusion-page-title-bar-breadcrumbs {
+	display: none;
+}
+
+.home #main {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/* FOOTER */
+.fusion-footer-widget-area .widget-title, .fusion-footer-widget-area h3 {
+	margin: 0;
+}
+
+.fusion-footer {
+	position: relative;
+}
+
+footer.fusion-footer-copyright-area {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+footer 	#gform_submit_button_1 {
+	display: none;
+}
+
+footer .gform_wrapper .custom_button {
+	margin-top: 29px;
+	padding: 6px 10px;
+	width: 100%;
+}
+
+
+#main #comment-submit, #main .comment-submit, #reviews input#submit, #tribe-bar-form .tribe-bar-submit input[type=submit], #tribe-events .tribe-events-button, #tribe-events .tribe-events-tickets .add-to-cart .button, #tribe_events_filter_control #tribe_events_filters_reset, #tribe_events_filter_control #tribe_events_filters_toggle, .button-default, .button.default, .comment-form input[type="submit"], .fusion-button-default, .fusion-portfolio-one .fusion-button, .gform_page_footer input[type="button"], .gform_wrapper .button, .gform_wrapper .gform_button, .post-password-form input[type="submit"], .ticket-selector-submit-btn[type=submit], .tml-submit-wrap input[type="submit"], input.button-default {
+    background: #168347 !important;
+}
