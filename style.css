@@ -9,9 +9,10 @@ Text Domain:  Avada
 */
 
 
-.top-featured-container {
-	background-size: 100%;
+.top-featured-container, .bottom-quote-image {
+	background-size: cover;
 	background-position: center;
+	background-repeat: no-repeat;
 	height: 285px;
 }
 
@@ -23,6 +24,33 @@ Text Domain:  Avada
 .home #main {
 	padding-top: 0;
 	padding-bottom: 0;
+}
+
+.bottom-quote-image .bottom-quote-text .bottom-quote-message p,
+.bottom-quote-image .bottom-quote-text .bottom-quote-name p {
+	color: #FFF;
+	text-align: center;
+	margin: 0;
+	font-family: 'Philosopher';
+}
+
+.bottom-quote-image {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.bottom-quote-image .bottom-quote-text {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.bottom-quote-image .bottom-quote-text .bottom-quote-message p {
+	font-size: 18px;
+}
+
+.bottom-quote-image .bottom-quote-text .bottom-quote-name p {
+	font-size: 10px;
+	padding-top: 10px;
 }
 
 /* FOOTER */
@@ -38,6 +66,10 @@ footer.fusion-footer-copyright-area {
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
+}
+
+footer .gform_wrapper ul li.gfield {
+    margin-bottom: 0;
 }
 
 footer 	#gform_submit_button_1 {

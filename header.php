@@ -207,13 +207,16 @@ if ( 'modern' === Avada()->settings->get( 'mobile_menu_design' ) ) {
 		}
 		do_action( 'avada_before_main_container' );
 		?>
-		<div class="top-featured-container" style="background-image:url('<?php the_post_thumbnail_url(); ?>');"></div>
+
+		<?php if ( has_post_thumbnail() ) : ?>
+			<div class="top-featured-container" style="background-image:url('<?php the_post_thumbnail_url(); ?>');"></div>
+		<?php endif; ?>
 
 		<?php if ( has_action( 'avada_override_current_page_title_bar' ) ) : ?>
 			<?php do_action( 'avada_override_current_page_title_bar', $c_page_id ); ?>
 		<?php else : ?>
 			<?php avada_current_page_title_bar( $c_page_id ); ?>
 		<?php endif; ?>
-		
+
 		<div id="main" role="main" class="clearfix <?php echo esc_attr( $main_class ); ?>" style="<?php echo esc_attr( $main_css ); ?>">
 			<div class="fusion-row" style="<?php echo esc_attr( $row_css ); ?>">
