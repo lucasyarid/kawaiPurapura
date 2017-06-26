@@ -212,7 +212,12 @@ if ( 'modern' === Avada()->settings->get( 'mobile_menu_design' ) ) {
 			if ( is_archive() ){ 
 				global $pagename; ?>
 	   				<div class="top-featured-container" style="background-image:url('<?php the_field($pagename.'_settings_featured_image', 'option'); ?>');"></div>
-			<?php } else {
+			<?php } elseif (is_home() && get_option('page_for_posts') ) {
+    				$img = wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_for_posts')),'full'); 
+    				$featured_image = $img[0]; ?>
+    				<div class="top-featured-container" style="background-image:url('<?php echo $featured_image ?>');"></div>
+		    <?php } elseif  (is_singular('post')) {}
+		    else {
 				if ( has_post_thumbnail() ) : ?>
 					<div class="top-featured-container" style="background-image:url('<?php the_post_thumbnail_url(); ?>');"></div> 
 			<?php endif;

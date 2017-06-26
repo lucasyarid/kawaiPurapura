@@ -16,6 +16,13 @@ Text Domain:  Avada
 	height: 285px;
 }
 
+.fusion-meta-info, .fusion-single-line-meta {
+	color: #209f59;
+	font-family: 'Philosopher';
+	font-weight: 900;
+	letter-spacing: 0.1em;
+}
+
 /* HOME */
 .home .fusion-page-title-bar-breadcrumbs {
 	display: none;
@@ -24,6 +31,36 @@ Text Domain:  Avada
 .home #main {
 	padding-top: 0;
 	padding-bottom: 0;
+}
+
+/* BLOG */
+.fusion-blog-archive {
+	margin-top: 30px;
+}
+
+.fusion-blog-archive .entry-title {
+	margin: 0;
+	line-height: 1em !important;
+}
+
+.fusion-blog-archive .fusion-content-sep {
+	display: none;
+}
+
+.fusion-blog-layout-grid .fusion-post-content-wrapper {
+	padding: 20px 25px 0 !important;
+}
+
+.single .fusion-meta-info {
+	margin: 0;
+	border: 0;
+	padding-top: 0;
+	margin-bottom: 15px;
+}
+
+.single .fusion-page-title-bar{
+	height: 30px;
+	margin-top: 20px;
 }
 
 /* JOBS */
