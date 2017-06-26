@@ -26,6 +26,13 @@ Text Domain:  Avada
 	padding-bottom: 0;
 }
 
+/* JOBS */
+.jobs .job-text {
+	color: #209f59;
+	font-size: 16px;
+	font-family: 'Philosopher';
+}
+
 .bottom-quote-image .bottom-quote-text .bottom-quote-message p,
 .bottom-quote-image .bottom-quote-text .bottom-quote-name p {
 	color: #FFF;
