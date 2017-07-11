@@ -8,6 +8,34 @@ Version: 1.0.0
 Text Domain:  Avada
 */
 
+b, strong {
+	font-weight: 900;
+}
+
+.post-type-archive .side-image img {
+	width: 100%;
+}
+
+.dimensions {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	color: #209f59;
+	font-weight: 900;
+}
+
+.default-button {
+    background: #209f59;
+    text-transform: uppercase;
+    color: #ffffff;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.default-button:hover {
+    background: #168347;
+}
 
 .top-featured-container, .bottom-quote-image {
 	background-size: cover;
@@ -59,7 +87,7 @@ Text Domain:  Avada
 }
 
 .single .fusion-page-title-bar{
-	height: 30px;
+	height: 60px;
 	margin-top: 20px;
 }
 
@@ -79,13 +107,19 @@ Text Domain:  Avada
 }
 
 .bottom-quote-image {
-	display: table-cell;
-	vertical-align: middle;
+	position: relative;
 }
 
 .bottom-quote-image .bottom-quote-text {
 	width: 60%;
 	margin: 0 auto;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 }
 
 .bottom-quote-image .bottom-quote-text .bottom-quote-message p {
@@ -129,4 +163,147 @@ footer .gform_wrapper .custom_button {
 
 #main #comment-submit, #main .comment-submit, #reviews input#submit, #tribe-bar-form .tribe-bar-submit input[type=submit], #tribe-events .tribe-events-button, #tribe-events .tribe-events-tickets .add-to-cart .button, #tribe_events_filter_control #tribe_events_filters_reset, #tribe_events_filter_control #tribe_events_filters_toggle, .button-default, .button.default, .comment-form input[type="submit"], .fusion-button-default, .fusion-portfolio-one .fusion-button, .gform_page_footer input[type="button"], .gform_wrapper .button, .gform_wrapper .gform_button, .post-password-form input[type="submit"], .ticket-selector-submit-btn[type=submit], .tml-submit-wrap input[type="submit"], input.button-default {
     background: #168347 !important;
+}
+
+/* EVENTS CALENDAR */
+.tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-],
+.tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-]>a,
+.tribe-events-calendar div[id*=tribe-events-daynum-] a,
+.tribe-events-calendar div[id*=tribe-events-daynum-],
+.tribe-grid-header .column a,
+.tribe-events-grid .type-tribe_events a,
+.tribe-week-grid-hours div {
+	color: #FFF !important;
+}
+
+.tribe-events-calendar div[id*=tribe-events-daynum-] a {
+	background-color: transparent !important;
+}
+
+.tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-] {
+	background-color: #a6d9bd !important;
+}
+
+.tribe-events-calendar div[id*=tribe-events-daynum-],
+.tribe-events-grid .tribe-grid-header .tribe-grid-content-wrap .column {
+	background-color: #209f59 !important;
+}
+
+body #wrapper .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-],
+#toTop:hover, #tribe-events-content .tribe-events-tooltip h4,
+#wrapper .search-table .search-button input[type="submit"]:hover, 
+.circle-yes ul li:before, .fusion-date-and-formats .fusion-date-box, 
+.pagination .current, .progress-bar-content, .table-2 table thead, 
+.tagcloud a:hover, .tribe-events-calendar thead th, .tribe-events-list-separator-month, 
+.tribe-mini-calendar-event .list-date, body #wrapper #tribe-events-content .tribe-events-calendar .mobile-active:hover, 
+body #wrapper #tribe-events-content .tribe-events-calendar td.tribe-events-present.mobile-active:hover, 
+body #wrapper .tribe-events-calendar .mobile-active div[id*=tribe-events-daynum-], 
+body #wrapper .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-],
+body #wrapper .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]>a,
+ul.arrow li:before, ul.circle-yes li:before,
+.tribe-events-calendar div[id*=tribe-events-daynum-],
+.tribe-events-grid .tribe-grid-header .tribe-grid-content-wrap .column.tribe-week-today,
+.tribe-grid-header .tribe-grid-content-wrap,
+.tribe-week-grid-hours div {
+	background-color: #168347 !important;
+}
+
+#tribe-events-content .tribe-events-calendar td, 
+#tribe-events-content table.tribe-events-calendar,
+.tribe-events-grid {
+	border: 1px solid #168347 !important;
+}
+
+.tribe-events-grid .scroller-content .tribe-grid-content-wrap .column {
+	border-left: 1px solid #168347 !important;
+}
+
+.tribe-grid-header {
+	border-bottom: 1px solid #168347 !important;
+}
+
+#tribe-events-content .tribe-events-calendar td {
+	background-color: #FFF !important;
+}
+
+.tribe-week-grid-block div {
+    border-bottom: 1px dotted #168347 !important;
+    border-top: 1px solid #168347 !important;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+.tribe-grid-header,
+.tribe-week-grid-hours div  {
+	font-weight: 900;
+	font-family: 'Philosopher';
+}
+
+.tribe-grid-allday .tribe-events-week-allday-single,
+.tribe-grid-body .tribe-events-week-hourly-single {
+	background-color: rgba(75,215,140,.75) !important;
+}
+
+.time-row-11PM, .tribe-week-grid-block[data-hour="23"],
+.time-row-12AM, .tribe-week-grid-block[data-hour="0"],
+.time-row-1AM, .tribe-week-grid-block[data-hour="1"],
+.time-row-2AM, .tribe-week-grid-block[data-hour="2"],
+.time-row-3AM, .tribe-week-grid-block[data-hour="3"],
+.time-row-4AM, .tribe-week-grid-block[data-hour="4"],
+.time-row-5AM, .tribe-week-grid-block[data-hour="10"],
+.tribe-grid-allday {
+	display: none;
+}
+
+.tribe-events-grid .tribe-scroller {
+	height: 1020px !important;
+}
+
+/* EVENTS CALENDAR SINGLE */
+.single-tribe_events .fusion-content-widget-area .default-button {
+	margin-left: 0;
+	width: 100%;
+	margin-top: 30px;
+}
+
+.single-tribe_events .fusion-content-widget-area .tribe-events-event-image {
+	margin-bottom: 10px;
+}
+
+.single-tribe_organizer #content {
+	width: calc(100% - 32% - 80px) !important;
+}
+
+.single-tribe_organizer #main .sidebar {
+    background-color: #f6f6f6;
+    padding: 4%;
+    width: 32% !important;
+}
+
+.single-tribe_organizer .sidebar a {
+	color: #333;
+}
+
+.single-tribe_organizer .sidebar .tribe-events-meta-group dd {
+	border-color: #e8e8e8;
+}
+
+.single-tribe_organizer .sidebar .tribe-events-single-section-title, .single-tribe_organizer .sidebar .tribe-events-tickets-title, .single-tribe_organizer .sidebar .widget .heading .widget-title, .single-tribe_organizer .sidebar .widget .widget-title {
+    background-color: #168347;
+    padding: 9px 15px;
+    color: #FFF;
+}
+
+/* ROOMS */
+.post-type-archive-rooms .rooms-list {
+	height: 325px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.post-type-archive-rooms .room-link {
+	position: absolute;
+	right: 0;
+	bottom: 10px;
 }

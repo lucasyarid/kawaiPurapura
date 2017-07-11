@@ -41,7 +41,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php endwhile; ?>
 	<?php wp_reset_postdata(); ?>
 </div>
-<?php do_action( 'avada_after_content' ); ?>
+<?php 
+	if (is_singular( 'tribe_events' ) || is_singular( 'tribe_organizer' )) {
+		include('partials/events-sidebar.php');
+	} else {
+		do_action( 'avada_after_content' ); 
+	}
+?>
 <?php get_footer();
 
 /* Omit closing PHP tag to avoid "Headers already sent" issues. */

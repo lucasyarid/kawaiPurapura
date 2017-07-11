@@ -218,9 +218,11 @@ if ( 'modern' === Avada()->settings->get( 'mobile_menu_design' ) ) {
     				<div class="top-featured-container" style="background-image:url('<?php echo $featured_image ?>');"></div>
 		    <?php } elseif  (is_singular('post')) {}
 		    else {
-				if ( has_post_thumbnail() ) : ?>
-					<div class="top-featured-container" style="background-image:url('<?php the_post_thumbnail_url(); ?>');"></div> 
-			<?php endif;
+		    	if ( !is_singular( 'avada_portfolio' ) ) {
+		    	    if ( has_post_thumbnail() ) { ?>
+		    	    	<div class="top-featured-container" style="background-image:url('<?php the_post_thumbnail_url(); ?>');"></div>
+		    	    <?php }
+		    	}
 			}
 		?>
 

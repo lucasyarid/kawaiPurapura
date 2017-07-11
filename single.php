@@ -25,12 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php while ( have_posts() ) : the_post(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
-			<?php $full_image = ''; ?>
-			<?php if ( 'above' == Avada()->settings->get( 'blog_post_title' ) ) : ?>
-				<?php echo wp_kses_post( avada_render_post_title( $post->ID, false, '', '2' ) ); ?>
-			<?php elseif ( 'disabled' == Avada()->settings->get( 'blog_post_title' ) && Avada()->settings->get( 'disable_date_rich_snippet_pages' ) ) : ?>
-				<span class="entry-title" style="display: none;"><?php the_title(); ?></span>
-			<?php endif; ?>
 
 			<?php echo wp_kses_post( avada_render_post_metadata( 'single' ) ); ?>
 
@@ -93,9 +87,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endif; ?>
 			<?php endif; ?>
 
-			<?php if ( 'below' == Avada()->settings->get( 'blog_post_title' ) ) : ?>
-				<?php echo wp_kses_post( avada_render_post_title( $post->ID, false, '', '2' ) ); ?>
-			<?php endif; ?>
 			<div class="post-content">
 				<?php the_content(); ?>
 				<?php fusion_link_pages(); ?>

@@ -10,14 +10,14 @@ $pagename = 'rooms';
 ?>
 <?php get_header(); ?>
 <div class="fusion-builder-row fusion-row ">
-	<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2" style="width:50%;width:calc(50% - ( ( 1% + 1% ) * 0.5 ) );margin-right: 1%;">
+	<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2" style="width:50%;width:calc(50% - ( ( 1% + 1% ) * 0.5 ) );margin-right: 2%;">
 		<div class="fusion-column-wrapper">
 			<?php the_field('rooms_settings_content', 'option'); ?>
 			<div class="fusion-clearfix"></div>
 		</div>
 	</div>
-	<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2" style="width:50%;width:calc(50% - ( ( 1% + 1% ) * 0.5 ) );margin-right: 1%;">
-		<div class="fusion-column-wrapper">
+	<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2" style="width:50%;width:calc(50% - ( ( 1% + 1% ) * 0.5 ) );">
+		<div class="fusion-column-wrapper side-image">
 			<?php $image = get_field('rooms_settings_side_image', 'option');
 			if( !empty($image) ): ?>
 				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
@@ -27,13 +27,12 @@ $pagename = 'rooms';
 	</div>
 </div>
 
-<?php while ( have_posts() ) : the_post(); ?>
-	
-	<div id="rooms" <?php Avada()->layout->add_style( 'content_style' ); ?>>
+<div id="rooms" <?php Avada()->layout->add_style( 'content_style' ); ?>>
+	<?php while ( have_posts() ) : the_post(); ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<?php echo wp_kses_post( fusion_render_rich_snippets_for_pages() ); ?>
 
-			<div class="post-content rooms">
+			<div class="post-content rooms-list">
 
 	        	<div class="fusion-builder-row fusion-row ">
 	        		<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2" style="width:50%;width:calc(50% - ( ( 1% + 1% ) * 0.5 ) );margin-right: 1%;">
@@ -59,14 +58,14 @@ $pagename = 'rooms';
 	        			<div class="fusion-column-wrapper">
 	        				<div class="room-pricing">
 	        					<ul>
-	        						<?php if( get_field('pricing_week_day_hour') ): ?>
-	        							<li><?php the_field('pricing_one_person'); ?> – 1 person</li>
+	        						<?php if( get_field('pricing_one_person') ): ?>
+	        							<li>$<?php the_field('pricing_one_person'); ?> – 1 person</li>
 	        						<?php endif; ?>
-	        						<?php if( get_field('pricing_two_person') ): ?>
-	        							<li><?php the_field('pricing_two_person'); ?> – 2 people</li>
+	        						<?php if( get_field('pricing_two_people') ): ?>
+	        							<li>$<?php the_field('pricing_two_people'); ?> – 2 people</li>
 	        						<?php endif; ?>
-	        						<?php if( get_field('pricing_three_person') ): ?>
-	        							<li><?php the_field('pricing_three_person'); ?> – 3 people</li>
+	        						<?php if( get_field('pricing_three_people') ): ?>
+	        							<li>$<?php the_field('pricing_three_people'); ?> – 3 people</li>
 	        						<?php endif; ?>
 	        					</ul>
 	        				</div>
@@ -75,11 +74,29 @@ $pagename = 'rooms';
 	        		</div>
 	        	</div>
 
+				<?php if( get_field('dimensions') ): ?>
+		        	<div class="room-dimensions dimensions">
+		        		<?php the_field('dimensions'); ?>
+		        	</div>
+		        <?php endif; ?>
+
+	        	<div class="room-link">
+	        		<?php if( get_field('button_link') ): ?>
+	        			<a class="button default-button" target="_blank" href="<?php the_field('button_link'); ?>">
+	        			    Book Here
+	        			</a>
+	        		<?php else : ?>
+	        			<a class="button default-button" target="_blank" href="https://secure.staah.com/common-cgi/package/packagebooking.pl?propertyId=4043&Ln=en">
+	        			    Book Here
+	        			</a>
+	        		<?php endif; ?>
+	        	</div>
+
 				<?php fusion_link_pages(); ?>
 			</div>
 		</div>
-	</div>
 	<?php endwhile; ?>
+</div>
 	<?php wp_reset_postdata(); ?>
 </div>
 <?php do_action( 'avada_after_content' ); ?>
