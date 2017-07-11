@@ -146,3 +146,54 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
+// Create shortcode to list organizers
+// Add Shortcode
+function list_tribe_organizers_shortcode() {
+	$content;
+	$organizer_permalink = [];
+	$organizer_titles = [];
+	$organizer_images = [];
+	$organizer_content;
+
+	$args = array(
+		'post_type' => 'tribe_organizer',
+		'posts_per_page' => -1
+	);
+	$the_query = new WP_Query( $args );
+	// Get Titles and Images
+	if ( $the_query->have_posts() ) { 
+		while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+
+			array_push($organizer_permalink, get_the_permalink());
+			array_push($organizer_titles, get_the_title());
+			array_push($organizer_images, get_the_post_thumbnail());
+	}
+		/* Restore original Post Data */
+		wp_reset_postdata();
+	} else {
+		// no posts found
+	}
+
+	for ($i = 0; $i <= count($organizer_titles); $i++) {
+	    $organizer_content .= '<div class="tribe-organizer">';
+	   		$organizer_content .= '<a href="'.$organizer_permalink[$i].'">';
+		    	$organizer_content .= '<div class="tribe-organizer-image">';
+		    		$organizer_content .= $organizer_images[$i];
+		    	$organizer_content .= '</div>';
+		    	$organizer_content .= '<h4 class="tribe-organizer-title">';
+		    		$organizer_content .= $organizer_titles[$i];
+		    	$organizer_content .= '</h4>';
+		    $organizer_content .= '</a>';
+	    $organizer_content .= '</div>';
+	}
+
+	$content .= '<div class="list-tribe-organizers">';
+	$content .= $organizer_content;
+	$content .= '</div>';
+
+	return $content;
+
+}
+add_shortcode( 'list_tribe_organizers', 'list_tribe_organizers_shortcode' );
+
