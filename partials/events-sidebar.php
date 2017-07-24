@@ -1,3 +1,7 @@
+<?php 
+$organizer_ids = tribe_get_organizer_ids();
+$multiple_organizers = count( $organizer_ids ) > 1;
+?>
 <div id="sidebar" role="complementary" class="sidebar fusion-widget-area fusion-content-widget-area fusion-" style="float: right;">
 	<div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix">
 		<?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
@@ -92,12 +96,34 @@
 
 		<?php if( tribe_get_organizer() ): ?>
 			<div class="tribe-events-meta-group tribe-events-meta-group-organizer">
-				<h3 class="tribe-events-single-section-title" data-fontsize="16" data-lineheight="16">Organizer</h3>
+				<h3 class="tribe-events-single-section-title" data-fontsize="16" data-lineheight="16">Organizer</h3><br>
 				<dl>
 					<dd class="tribe-organizer">
-						<a href="<?php echo tribe_get_organizer_website(); ?>" title="<?php echo tribe_get_organizer(); ?>">
-							<?php echo tribe_get_organizer(); ?>
-						</a>
+						<?php
+						$organizer_links = array();
+						foreach ( $organizer_ids as $organizer_id ) {
+							if ( ! $organizer_id ) {
+								continue;
+							}
+
+							$organizer_link = tribe_get_organizer_link( $organizer_id, true );
+
+							$organizer_links[] = $organizer_link;
+						}// end foreach
+
+						$and = _x( 'and', 'list separator for final two elements', 'tribe-events-calendar-pro' );
+						if ( 1 == count( $organizer_links ) ) {
+							echo $organizer_links[0];
+						} elseif ( 2 == count( $organizer_links ) ) {
+							echo $organizer_links[0] . ' ' . esc_html( $and ) . ' ' . $organizer_links[1];
+						} else {
+							$last_organizer = array_pop( $organizer_links );
+
+							echo implode( ', ', $organizer_links );
+							echo esc_html( ', ' . $and . ' ' );
+							echo $last_organizer;
+						}// end else
+						?>
 					</dd>
 
 					<?php if( sp_get_organizer_email() ): ?>

@@ -303,6 +303,10 @@ ul.arrow li:before, ul.circle-yes li:before,
 	overflow: hidden;
 }
 
+.list-tribe-organizers .tribe-organizer.tribe-organizer-single {
+	width: 100%;
+}
+
 .list-tribe-organizers .tribe-organizer-title {
 	text-align: center;
 	font-weight: 900;

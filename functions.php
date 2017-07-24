@@ -132,8 +132,20 @@ add_action( 'init', 'cpt_rooms', 0 );
 
 }
 
+/*
+ * The Events Calendar - Add 'tags' support to organizers
+*/
+function tribe_modify_organizer() {
+ 
+    $tribe_organizer_args = get_post_type_object('tribe_organizer');
+    $tribe_organizer_args->taxonomies = array('tribe_events_cat');
+ 
+    register_post_type( 'tribe_organizer', $tribe_organizer_args );
+}
+add_action( 'init', 'tribe_modify_organizer', 100 );
+
+// Register jobs and rooms settings
 if( function_exists('acf_add_options_page') ) {	
-	// add jobs, venues and rooms settings
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Jobs Page Settings',
 		'menu_title' 	=> 'Jobs Settings',
@@ -148,35 +160,82 @@ if( function_exists('acf_add_options_page') ) {
 
 // Create shortcode to list organizers
 // Add Shortcode
-function list_tribe_organizers_shortcode() {
+function list_tribe_organizers_shortcode($atts) {
+	extract( shortcode_atts( 
+		array(
+	    	'filter' => 'all',
+	    	'category' => 'all',
+	    	'id' => 0
+		), $atts )
+	); 
+
 	$content;
 	$organizer_permalink = [];
 	$organizer_titles = [];
 	$organizer_images = [];
 	$organizer_content;
+	$organizer_ids = tribe_get_organizer_ids();
+	$multiple_organizers = count( $organizer_ids ) > 1;
 
-	$args = array(
-		'post_type' => 'tribe_organizer',
-		'posts_per_page' => -1
-	);
-	$the_query = new WP_Query( $args );
-	// Get Titles and Images
-	if ( $the_query->have_posts() ) { 
-		while ( $the_query->have_posts() ) {
-			$the_query->the_post();
+	if ($filter == 'current') {
 
-			array_push($organizer_permalink, get_the_permalink());
-			array_push($organizer_titles, get_the_title());
-			array_push($organizer_images, get_the_post_thumbnail());
-	}
-		/* Restore original Post Data */
-		wp_reset_postdata();
+		foreach ( $organizer_ids as $organizer_id ) {
+			array_push($organizer_permalink, tribe_get_organizer_link( $organizer_id, false ));
+			array_push($organizer_titles, get_the_title( $organizer_id ));
+			array_push($organizer_images, get_the_post_thumbnail( $organizer_id ));
+		}	
 	} else {
-		// no posts found
+		// Get all organizers
+		if ($id != 0) {
+			array_push($organizer_permalink, get_the_permalink($id));
+			array_push($organizer_titles, get_the_title($id));
+			array_push($organizer_images, get_the_post_thumbnail($id));
+		} elseif ($category == 'all') {
+			$args = array(
+				'post_type' => 'tribe_organizer',
+				'posts_per_page' => -1
+			);
+		} else {
+			$args = array(
+				'post_type' => 'tribe_organizer',
+				'posts_per_page' => -1,
+				'tax_query' => array(
+			        array (
+			            'taxonomy' => 'tribe_events_cat',
+			            'field' => 'slug',
+			            'terms' => $category,
+			        )
+			    ),
+			);
+		}
+	
+		$the_query = new WP_Query( $args );
+		// Get Titles and Images
+		if ( $the_query->have_posts() ) { 
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
+
+				array_push($organizer_permalink, get_the_permalink());
+				array_push($organizer_titles, get_the_title());
+				array_push($organizer_images, get_the_post_thumbnail());
+		}
+			/* Restore original Post Data */
+			wp_reset_postdata();
+		}
 	}
 
-	for ($i = 0; $i <= count($organizer_titles); $i++) {
-	    $organizer_content .= '<div class="tribe-organizer">';
+	if ($id != 0) {
+		$countOrganizers = $organizer_ids;
+	} else {
+		$countOrganizers = $organizer_titles;
+	}
+
+	for ($i = 0; $i <= count($countOrganizers); $i++) {
+		if ($id != 0) {
+			$organizer_content .= '<div class="tribe-organizer tribe-organizer-single">';
+		} else {
+			$organizer_content .= '<div class="tribe-organizer">';
+		}
 	   		$organizer_content .= '<a href="'.$organizer_permalink[$i].'">';
 		    	$organizer_content .= '<div class="tribe-organizer-image">';
 		    		$organizer_content .= $organizer_images[$i];
