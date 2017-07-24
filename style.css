@@ -140,6 +140,11 @@ b, strong {
 	position: relative;
 }
 
+footer.fusion-footer-widget-area {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
 footer.fusion-footer-copyright-area {
 	position: absolute;
 	bottom: 0px;
@@ -155,11 +160,27 @@ footer 	#gform_submit_button_1 {
 }
 
 footer .gform_wrapper .custom_button {
-	margin-top: 29px;
+	margin-top: 8px;
 	padding: 6px 10px;
-	width: 100%;
+	width: 98%;
 }
 
+footer p {
+	margin: 0;
+}
+
+.fusion-footer-widget-area h4.widget-title {
+	margin-bottom: 8px;
+}
+
+footer .gform_wrapper .top_label .gfield_label,
+footer .gform_wrapper .field_sublabel_above .ginput_complex.ginput_container label {
+	display: none;
+}
+
+footer .gform_wrapper ul li.gfield {
+	margin-top: 0 !important;
+}
 
 #main #comment-submit, #main .comment-submit, #reviews input#submit, #tribe-bar-form .tribe-bar-submit input[type=submit], #tribe-events .tribe-events-button, #tribe-events .tribe-events-tickets .add-to-cart .button, #tribe_events_filter_control #tribe_events_filters_reset, #tribe_events_filter_control #tribe_events_filters_toggle, .button-default, .button.default, .comment-form input[type="submit"], .fusion-button-default, .fusion-portfolio-one .fusion-button, .gform_page_footer input[type="button"], .gform_wrapper .button, .gform_wrapper .gform_button, .post-password-form input[type="submit"], .ticket-selector-submit-btn[type=submit], .tml-submit-wrap input[type="submit"], input.button-default {
     background: #168347 !important;
@@ -325,4 +346,20 @@ ul.arrow li:before, ul.circle-yes li:before,
 	position: absolute;
 	right: 0;
 	bottom: 10px;
+}
+
+/* EVENTS TEMPLATE */
+.event-template .event-template-description {
+	font-style: italic;
+}
+
+.event-template .event-template-sidebar {
+	color: #209f59;
+	text-align: right;
+	font-weight: 900;
+}
+
+.event-template .event-template-sidebar .fusion-button-wrapper,
+.event-template .event-template-sidebar .button-large {
+	width: 100%;
 }
