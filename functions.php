@@ -231,20 +231,22 @@ function list_tribe_organizers_shortcode($atts) {
 	}
 
 	for ($i = 0; $i <= count($countOrganizers); $i++) {
-		if ($id != 0) {
-			$organizer_content .= '<div class="tribe-organizer tribe-organizer-single">';
-		} else {
-			$organizer_content .= '<div class="tribe-organizer">';
+		if ($organizer_titles[$i]) {
+			if ($id != 0) {
+				$organizer_content .= '<div class="tribe-organizer tribe-organizer-single">';
+			} else {
+				$organizer_content .= '<div class="tribe-organizer">';
+			}
+		   		$organizer_content .= '<a href="'.$organizer_permalink[$i].'">';
+			    	$organizer_content .= '<div class="tribe-organizer-image">';
+			    		$organizer_content .= $organizer_images[$i];
+			    	$organizer_content .= '</div>';
+			    	$organizer_content .= '<h4 class="tribe-organizer-title">';
+			    		$organizer_content .= $organizer_titles[$i];
+			    	$organizer_content .= '</h4>';
+			    $organizer_content .= '</a>';
+		    $organizer_content .= '</div>';
 		}
-	   		$organizer_content .= '<a href="'.$organizer_permalink[$i].'">';
-		    	$organizer_content .= '<div class="tribe-organizer-image">';
-		    		$organizer_content .= $organizer_images[$i];
-		    	$organizer_content .= '</div>';
-		    	$organizer_content .= '<h4 class="tribe-organizer-title">';
-		    		$organizer_content .= $organizer_titles[$i];
-		    	$organizer_content .= '</h4>';
-		    $organizer_content .= '</a>';
-	    $organizer_content .= '</div>';
 	}
 
 	$content .= '<div class="list-tribe-organizers">';
