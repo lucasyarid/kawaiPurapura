@@ -33,13 +33,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="post-content venues">
 
 				        	<div class="fusion-builder-row fusion-row ">
-				        		<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2" style="width:50%;width:calc(50% - ( ( 1% + 1% ) * 0.5 ) );margin-right: 1%;">
+				        		<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2" style="width:50%;width:calc(50% - ( ( 1% + 1% ) * 0.5 ) );margin-right: 2%;">
 				        			<div class="fusion-column-wrapper">
 				        				<?php include('partials/ACFfusionSlider.php'); ?>
 				        				<div class="fusion-clearfix"></div>
 				        			</div>
 				        		</div>
-				        		<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_4  fusion-one-fourth 1_4" style="width:25%;width:calc(25% - ( ( 1% + 1% ) * 0.25 ) );margin-right: 1%;">
+				        		<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_4  fusion-one-fourth 1_4" style="width:25%;width:calc(25% - ( ( 1% + 1% ) * 0.25 ) );">
 				        			<div class="fusion-column-wrapper">
 										<div class="venue-content">
 											<div class="venue-title">

@@ -37,6 +37,10 @@ b, strong {
     background: #168347;
 }
 
+.top-featured-container {
+    margin-bottom: 20px;
+}
+
 .top-featured-container, .bottom-quote-image {
 	background-size: cover;
 	background-position: center;
@@ -91,6 +95,17 @@ b, strong {
 	margin-top: 20px;
 }
 
+.fusion-rollover h4 a,
+.fusion-rollover .fusion-rollover-categories a {
+	color: #FFF !important;
+}
+
+.fusion-blog-archive .fusion-rollover .fusion-rollover-link,
+.fusion-blog-archive .fusion-rollover .fusion-rollover-gallery,
+.fusion-blog-archive .fusion-rollover .fusion-rollover-sep {
+	display: none;
+}
+
 /* JOBS */
 .jobs .job-text {
 	color: #209f59;
@@ -123,11 +138,11 @@ b, strong {
 }
 
 .bottom-quote-image .bottom-quote-text .bottom-quote-message p {
-	font-size: 18px;
+	font-size: 21px;
 }
 
 .bottom-quote-image .bottom-quote-text .bottom-quote-name p {
-	font-size: 10px;
+	font-size: 14px;
 	padding-top: 10px;
 }
 
@@ -184,6 +199,16 @@ footer .gform_wrapper ul li.gfield {
 
 #main #comment-submit, #main .comment-submit, #reviews input#submit, #tribe-bar-form .tribe-bar-submit input[type=submit], #tribe-events .tribe-events-button, #tribe-events .tribe-events-tickets .add-to-cart .button, #tribe_events_filter_control #tribe_events_filters_reset, #tribe_events_filter_control #tribe_events_filters_toggle, .button-default, .button.default, .comment-form input[type="submit"], .fusion-button-default, .fusion-portfolio-one .fusion-button, .gform_page_footer input[type="button"], .gform_wrapper .button, .gform_wrapper .gform_button, .post-password-form input[type="submit"], .ticket-selector-submit-btn[type=submit], .tml-submit-wrap input[type="submit"], input.button-default {
     background: #168347 !important;
+}
+
+
+/* FLEXSLIDER */
+.fusion-slider-sc .flex-direction-nav a {
+	opacity: .8 !important;
+}
+
+.flexslider {
+	margin: 0 !important;
 }
 
 /* EVENTS CALENDAR */
@@ -271,7 +296,7 @@ ul.arrow li:before, ul.circle-yes li:before,
 .time-row-2AM, .tribe-week-grid-block[data-hour="2"],
 .time-row-3AM, .tribe-week-grid-block[data-hour="3"],
 .time-row-4AM, .tribe-week-grid-block[data-hour="4"],
-.time-row-5AM, .tribe-week-grid-block[data-hour="10"],
+.time-row-5AM, .tribe-week-grid-block[data-hour="5"],
 .tribe-grid-allday {
 	display: none;
 }
@@ -336,10 +361,8 @@ ul.arrow li:before, ul.circle-yes li:before,
 
 /* ROOMS */
 .post-type-archive-rooms .rooms-list {
-	height: 325px;
 	overflow: hidden;
 	position: relative;
-	margin-bottom: 20px;
 }
 
 .post-type-archive-rooms .room-link {
@@ -347,6 +370,12 @@ ul.arrow li:before, ul.circle-yes li:before,
 	right: 0;
 	bottom: 10px;
 }
+
+.venue-description p,
+.room-description p {
+	padding-right: 10px;
+} 
+
 
 /* EVENTS TEMPLATE */
 .event-template .event-template-description {
@@ -362,4 +391,8 @@ ul.arrow li:before, ul.circle-yes li:before,
 .event-template .event-template-sidebar .fusion-button-wrapper,
 .event-template .event-template-sidebar .button-large {
 	width: 100%;
+}
+
+#tribe-events-content .class a {
+	color: #999;
 }
