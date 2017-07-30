@@ -367,7 +367,7 @@ ul.arrow li:before, ul.circle-yes li:before,
 
 .post-type-archive-rooms .room-link {
 	position: absolute;
-	right: 0;
+	right: 17.5%;
 	bottom: 10px;
 }
 
@@ -395,4 +395,18 @@ ul.arrow li:before, ul.circle-yes li:before,
 
 #tribe-events-content .class a {
 	color: #999;
+}
+
+.tribe-mobile-day .tribe-mobile-day-date {
+	color: #209f59 !important;
+}
+
+@media (max-width: 992px) {
+	.tribe-events-week-grid .tribe-events-grid {
+		display: none;
+	}
+	.post-type-archive-rooms .room-link {
+		position: initial;
+		margin-bottom: 80px;
+	}
 }
