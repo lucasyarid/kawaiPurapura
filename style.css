@@ -46,6 +46,16 @@ b, strong {
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 285px;
+	width: 100%;
+}
+
+.bottom-quote-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+	filter: blur(2px);
+	opacity: .6;
 }
 
 .fusion-meta-info, .fusion-single-line-meta {
@@ -113,19 +123,21 @@ b, strong {
 	font-family: 'Philosopher';
 }
 
-.bottom-quote-image .bottom-quote-text .bottom-quote-message p,
-.bottom-quote-image .bottom-quote-text .bottom-quote-name p {
+.bottom-quote-container .bottom-quote-text .bottom-quote-message p,
+.bottom-quote-container .bottom-quote-text .bottom-quote-name p {
 	color: #FFF;
 	text-align: center;
 	margin: 0;
 	font-family: 'Philosopher';
 }
 
-.bottom-quote-image {
+.bottom-quote-container {
 	position: relative;
+	height: 285px;
+	background-color: #000;
 }
 
-.bottom-quote-image .bottom-quote-text {
+.bottom-quote-container .bottom-quote-text {
 	width: 60%;
 	margin: 0 auto;
 	position: absolute;
@@ -137,11 +149,11 @@ b, strong {
     -webkit-transform: translate(-50%, -50%);
 }
 
-.bottom-quote-image .bottom-quote-text .bottom-quote-message p {
+.bottom-quote-container .bottom-quote-text .bottom-quote-message p {
 	font-size: 21px;
 }
 
-.bottom-quote-image .bottom-quote-text .bottom-quote-name p {
+.bottom-quote-container .bottom-quote-text .bottom-quote-name p {
 	font-size: 14px;
 	padding-top: 10px;
 }
@@ -366,9 +378,7 @@ ul.arrow li:before, ul.circle-yes li:before,
 }
 
 .post-type-archive-rooms .room-link {
-	position: absolute;
-	right: 17.5%;
-	bottom: 10px;
+	margin: 30px 0;
 }
 
 .venue-description p,
@@ -378,6 +388,10 @@ ul.arrow li:before, ul.circle-yes li:before,
 
 
 /* EVENTS TEMPLATE */
+.tribe-events-calendar div[id*=tribe-events-event-] h3.tribe-events-month-event-title a {
+	font-weight: 900;
+}
+
 .event-template .event-template-description {
 	font-style: italic;
 }
@@ -385,7 +399,7 @@ ul.arrow li:before, ul.circle-yes li:before,
 .event-template .event-template-sidebar {
 	color: #209f59;
 	text-align: right;
-	font-weight: 900;
+	font-weight: 600;
 }
 
 .event-template .event-template-sidebar .fusion-button-wrapper,
@@ -395,6 +409,7 @@ ul.arrow li:before, ul.circle-yes li:before,
 
 #tribe-events-content .class a {
 	color: #999;
+	font-weight: 100;
 }
 
 .tribe-mobile-day .tribe-mobile-day-date {
@@ -404,9 +419,5 @@ ul.arrow li:before, ul.circle-yes li:before,
 @media (max-width: 992px) {
 	.tribe-events-week-grid .tribe-events-grid {
 		display: none;
-	}
-	.post-type-archive-rooms .room-link {
-		position: initial;
-		margin-bottom: 80px;
 	}
 }

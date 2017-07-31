@@ -41,7 +41,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="fusion-footer<?php echo esc_attr( $footer_parallax_class ); ?>">
 
 					<?php if( get_field('bottom_background_image') ): ?>
-						<div class="bottom-quote-image" style="background-image:url('<?php the_field('bottom_background_image'); ?>');">
+						<div class="bottom-quote-container">
+							<div class="bottom-quote-image" style="background-image:url('<?php the_field('bottom_background_image'); ?>');"></div>
 							<div class="bottom-quote-text">	
 								<?php if( get_field('bottom_quote_message') ): ?>
 									<div class="bottom-quote-message">

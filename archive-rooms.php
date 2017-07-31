@@ -97,6 +97,17 @@ $pagename = 'rooms';
 			        						<?php endif; ?>
 			        					</ul>
 		        					<?php endif; ?>
+		        					<div class="room-link">
+		        						<?php if( get_field('button_link') ): ?>
+		        							<a class="button default-button" target="_blank" href="<?php the_field('button_link'); ?>">
+		        							    Book Here
+		        							</a>
+		        						<?php else : ?>
+		        							<a class="button default-button" target="_blank" href="https://secure.staah.com/common-cgi/package/packagebooking.pl?propertyId=4043&Ln=en">
+		        							    Book Here
+		        							</a>
+		        						<?php endif; ?>
+		        					</div>
 		        				</div>
 		        				<div class="fusion-clearfix"></div>
 		        			</div>
@@ -108,18 +119,6 @@ $pagename = 'rooms';
 			        		<?php the_field('dimensions'); ?>
 			        	</div>
 			        <?php endif; ?>
-
-		        	<div class="room-link">
-		        		<?php if( get_field('button_link') ): ?>
-		        			<a class="button default-button" target="_blank" href="<?php the_field('button_link'); ?>">
-		        			    Book Here
-		        			</a>
-		        		<?php else : ?>
-		        			<a class="button default-button" target="_blank" href="https://secure.staah.com/common-cgi/package/packagebooking.pl?propertyId=4043&Ln=en">
-		        			    Book Here
-		        			</a>
-		        		<?php endif; ?>
-		        	</div>
 
 					<?php fusion_link_pages(); ?>
 				</div>
