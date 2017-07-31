@@ -46,7 +46,7 @@ $pagename = 'jobs';
 	        			<div class="fusion-column-wrapper">
 							<div class="job-content">
 								<div class="job-title">
-									<h2><?php the_title(); ?></h2>
+									<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>
 								<div class="job-description">
 									<?php the_field('description'); ?>
@@ -58,8 +58,11 @@ $pagename = 'jobs';
 	        		<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_4  fusion-one-fourth fusion-column-last 1_4" style="width:25%;width:calc(25% - ( ( 1% + 1% ) * 0.25 ) );">
 	        			<div class="fusion-column-wrapper">
 	        				<div class="job-text">
-	        					<?php the_content(); ?>
+	        					<?php the_excerpt(); ?>
 	        				</div>
+	        				<a class="button default-button" target="_blank" href="<?php the_permalink(); ?>">
+	        				    Read More
+	        				</a>
 	        				<div class="fusion-clearfix"></div>
 	        			</div>
 	        		</div>
